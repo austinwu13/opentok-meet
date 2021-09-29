@@ -9,7 +9,7 @@ angular.module('opentok-meet-login', [])
     $scope.roomType = 'normal';
     $scope.tokenRole = 'moderator';
     $scope.advanced = false;
-    $scope.dtx = false;
+    $scope.dtx = true;
     $scope.joinRoom = () => {
       const location = new URL($window.location.href);
       let url = `${location.origin}/${encodeURIComponent($scope.room)}`;
@@ -26,9 +26,9 @@ angular.module('opentok-meet-login', [])
         url += `?tokenRole=${$scope.tokenRole}`;
       }
 
-      if ($scope.dtx) {
+      if (!$scope.dtx) {
         const precursor = $scope.tokenRole ? '&' : '?';
-        url += `${precursor}dtx=true`;
+        url += `${precursor}dtx=false`;
       }
 
       $window.location.href = url;

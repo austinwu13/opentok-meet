@@ -30,7 +30,13 @@ xdescribe('dtx', () => {
       roomField.sendKeys(roomName);
       dtx.click();
       submit.click();
-      expect(browser.getCurrentUrl()).toBe(`${browser.baseUrl + roomName}?dtx=true`);
+      expect(browser.getCurrentUrl()).toBe(`${browser.baseUrl + roomName}?dtx=false`);
+    });
+
+    it('should not add the dtx parameter on the end of the url by default', () => {
+      roomField.sendKeys(roomName);
+      submit.click();
+      expect(browser.getCurrentUrl()).toBe(`${browser.baseUrl + roomName}`);
     });
   });
 });

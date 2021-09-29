@@ -33,7 +33,10 @@ angular.module('opentok-meet').controller('RoomCtrl', ['$scope', '$http', '$wind
     $scope.startingWebviewComposing = false;
 
     const url = new URL($window.location.href);
-    const enableDtx = url.searchParams.get('dtx') === 'true';
+    let enableDtx = true;
+    if (url.searchParams.get('dtx') === 'false') {
+      enableDtx = false;
+    }
 
     const facePublisherPropsHD = {
       name: 'face',
