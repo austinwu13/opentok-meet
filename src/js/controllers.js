@@ -86,6 +86,23 @@ angular.module('opentok-meet').controller('RoomCtrl', ['$scope', '$http', '$wind
       });
     };
 
+    $scope.muteOnEntry = () => {
+      const myStream = OT.publishers.find().stream;
+      $scope.session.forceMuteAll([myStream]).then(() => {
+        console.log('Enable MuteOnEntry complete');
+      }).catch((error) => {
+        console.error('Enable MuteOnEntry failed', error);
+      });
+    };
+
+    $scope.disableMuteOnEntry = () => {
+      $scope.session.disableForceMute().then(() => {
+        console.log('Disable MuteOnEntry complete');
+      }).catch((error) => {
+        console.error('Disable MuteOnEntry failed', error);
+      });
+    };
+
     $scope.forceMuteAllExcludingPublisherStream = () => {
       const streamId = (OT.publishers.find() || {}).streamId;
       const streams = (OT.sessions.find() || {}).streams;

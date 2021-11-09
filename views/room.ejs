@@ -143,6 +143,10 @@
 
             <button type="button" name="muteAllExcludingPublishingStream" id="muteAllExcludingPublishingStream" ng-click="forceMuteAllExcludingPublisherStream()" class="icon-left ion gray" ng-if="isModerator">Mute All Excluding Publishing Stream</button>
 
+            <button type="button" name="enableMuteOnEntry" id="enableMuteOnEntry" ng-click="muteOnEntry()" class="icon-left ion gray" ng-if="isModerator">Enable Mute On Entry</button>
+
+            <button type="button" name="disableMuteOnEntry" id="disableMuteOnEntry" ng-click="disableMuteOnEntry()" class="icon-left ion gray" ng-if="isModerator">Disable Mute On Entry</button>
+
             <span id="publishUI">
                 <button name="publish" id="publishBtn" ng-click="togglePublish(true)" ng-class="{green: !publishing, red: publishing}" class="publish-btn icon-left ion ion-ios7-videocam" title="WebCam">{{ publishing ? 'Unpublish' : 'Publish HD'}}</button>
                 <button name="publishSD" id="publishSDBtn" ng-if="!publishing" ng-click="togglePublish(false)" class="publish-btn green icon-left ion ion-ios7-videocam" title="WebCam">Publish SD</button>
